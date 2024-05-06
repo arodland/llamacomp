@@ -8,11 +8,6 @@ import zlib
 import subprocess
 import time
 
-def gpu_temp():
-    out = subprocess.run(['nvidia-smi', '--query-gpu=temperature.gpu', '--format=csv,noheader'],
-                         capture_output=True, encoding='utf8')
-    return int(out.stdout)
-
 context = []
 declen = 0
 enclen = 0
@@ -27,9 +22,6 @@ outf = open(sys.argv[2], "wb")
 outz = zlib.compressobj(level=9, wbits=-15)
 
 while True:
-    while gpu_temp() > 75:
-        time.sleep(1)
-
     while len(inbuf) < 1024 and not exhausted:
         r = file.read(256)
         if r:
