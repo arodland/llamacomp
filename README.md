@@ -1,3 +1,5 @@
+[Blog post](https://blog.cleverdomain.org/using-an-llm-for-text-compression)
+
 Needs the [llama.cpp](https://github.com/ggerganov/llama.cpp) HTTP server running, e.g.
 
 ```
